@@ -7,6 +7,36 @@
 # say goodbye
 
 import random
+import time
+import naoqi
+
+from naomotions import *
+
+# ip_address = raw_input("Robot IP Address:\n")
+ip_address = "192.168.1.124"
+robot = NaoRobot(ip_address, 9559)
+
+
+robot.posture.goToPosture("Stand", 0.3)
+id = robot.genSpeech("Hello, Teddy!")
+robot.wave()
+robot.speechDevice.wait(id, 0)
+robot.posture.goToPosture("Crouch", 0.3)
+
+angles = robot.motion.getAngles("RWristYaw", False)
+print(angles)
+
+robot.paper()
+#robot.swing()
+
+
+robot.posture.goToPosture("Crouch", 0.3)
+
+
+
+
+
+# robot.release_nao()
 
 print("\n=====Rock Paper Scissors: The Python Game=====")
 print("\n")
@@ -25,13 +55,13 @@ for i in range(2):
     naoItem = random.randint(1,3)
     if naoItem == 1:
         naoItem = "Rock"
-        print(f"NAO chooses {naoItem}...")
+        print("NAO chooses {naoItem}...")
     if naoItem == 2:
         naoItem = "Paper"
-        print(f"NAO chooses {naoItem}...")
+        print("NAO chooses {naoItem}...")
     if naoItem == 3:
         naoItem = "Scissors"
-        print(f"NAO chooses {naoItem}...")
+        print("NAO chooses {naoItem}...")
 
 
     if myItem == "R" and naoItem == "Paper":
@@ -39,14 +69,14 @@ for i in range(2):
         print("NAO WINS!!!")
     if myItem == "R" and naoItem == "Scissors":
         print("[Rock smashes Scissors]")
-        print(f"{name} WINS!!!")
+        print("{name} WINS!!!")
     if myItem == "R" and naoItem == "Rock":
         print("[Rock meets Rock]")
         print("It's a tie!!")
 
     if myItem == "P" and naoItem == "Rock":
         print("[Paper covers Rock]")
-        print(f"{name} WINS!!!")
+        print("{name} WINS!!!")
     if myItem == "P" and naoItem == "Scissors":
         print("[Scissors cut Paper]")
         print("NAO WINS!!!")
@@ -59,7 +89,7 @@ for i in range(2):
         print("NAO WINS!!!")
     if myItem == "S" and naoItem == "Paper":
         print("[Scissors cut Paper]")
-        print(f"{name} WINS!!!")
+        print("{name} WINS!!!")
     if myItem == "S" and naoItem == "Scissors":
         print("[Scissors meet Scissors]")
         print("It's a tie!!")
@@ -78,13 +108,13 @@ while True:
     naoItem = random.randint(1,3)
     if naoItem == 1:
         naoItem = "Rock"
-        print(f"NAO chooses {naoItem}...")
+        print("NAO chooses {naoItem}...")
     if naoItem == 2:
         naoItem = "Paper"
-        print(f"NAO chooses {naoItem}...")
+        print("NAO chooses {naoItem}...")
     if naoItem == 3:
         naoItem = "Scissors"
-        print(f"NAO chooses {naoItem}...")
+        print("NAO chooses {naoItem}...")
 
     #cheat
     if myItem == "R" and naoItem == "Paper":
@@ -92,42 +122,42 @@ while True:
         print("NAO WINS!!!")
     if myItem == "R" and naoItem == "Scissors":
         naoItem = "Paper"
-        print(f"-- OOPS! NAO changes to Paper!")
+        print("-- OOPS! NAO changes to Paper!")
         print("[Paper covers Rock]")
-        print(f"NAO WINS!!!")
+        print("NAO WINS!!!")
     if myItem == "R" and naoItem == "Rock":
         naoItem = "Paper"
-        print(f"-- OOPS! NAO changes to Paper!")
+        print("-- OOPS! NAO changes to Paper!")
         print("[Paper covers Rock]")
-        print(f"NAO WINS!!!")
+        print("NAO WINS!!!")
 
     if myItem == "P" and naoItem == "Scissors":
         print("[Scissors cut Paper]")
         print("NAO WINS!!!")
     if myItem == "P" and naoItem == "Rock":
         naoItem = "Scissors"
-        print(f"-- OOPS! NAO changes to Scissors!")
+        print("-- OOPS! NAO changes to Scissors!")
         print("[Scissors cut Paper]")
-        print(f"NAO WINS!!!")
+        print("NAO WINS!!!")
     if myItem == "P" and naoItem == "Paper":
         naoItem = "Scissors"
-        print(f"-- OOPS! NAO changes to Scissors!")
+        print("-- OOPS! NAO changes to Scissors!")
         print("[Scissors cut Paper]")
-        print(f"NAO WINS!!!")
+        print("NAO WINS!!!")
 
     if myItem == "S" and naoItem == "Rock":
         print("[Rock Smashes Scissors]")
         print("NAO WINS!!!")
     if myItem == "S" and naoItem == "Paper":
         naoItem = "Rock"
-        print(f"-- OOPS! NAO changes to Rock!")
+        print("-- OOPS! NAO changes to Rock!")
         print("[Rock smashes Scissors]")
-        print(f"NAO WINS!!!")
+        print("NAO WINS!!!")
     if myItem == "S" and naoItem == "Scissors":
         naoItem = "Rock"
-        print(f"-- OOPS! NAO changes to Rock!")
+        print("-- OOPS! NAO changes to Rock!")
         print("[Rock smashes Scissors]")
-        print(f"NAO WINS!!!")
+        print("NAO WINS!!!")
 
 
     exit = input("\nWould you like to play game? Y/N\n")
