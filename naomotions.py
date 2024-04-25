@@ -54,8 +54,10 @@ class NaoRobot:
         self.motion.setAngles("RShoulderPitch", 0.5, 0.15)
         self.motion.setAngles("RElbowRoll", 0.5, 0.15)
         self.motion.setAngles("RElbowYaw", 1.5, 0.15)
+        self.motion.setAngles("RWristYaw", -0.14, 0.15)
+        # self.motion.closeHand('RHand')
 
-        time.sleep(5)
+        time.sleep(1.0)
 
     def paper(self):
         self.motion.setAngles("RShoulderPitch", 0.5, 0.15)
@@ -64,22 +66,25 @@ class NaoRobot:
         self.motion.setAngles("RWristYaw", -1.5, 0.15)
         self.motion.openHand('RHand')
 
-        time.sleep(5)
+        time.sleep(1.0)
 
     def scissors(self):
         self.motion.setAngles("RShoulderPitch", 0.5, 0.15)
         self.motion.setAngles("RElbowRoll", 0.5, 0.15)
         self.motion.setAngles("RElbowYaw", 1.5, 0.15)
+        self.motion.setAngles("RWristYaw", -0.14, 0.15)
         self.motion.openHand('RHand')
 
-        time.sleep(5)
+        time.sleep(1.0)
 
     def swing(self):
         self.motion.setAngles("RShoulderPitch", 0.5, 0.15)
-        self.motion.setAngles("RElbowRoll", 1.6, 0.15)
+        self.motion.setAngles("RElbowRoll", 1.8, 0.15)
         self.motion.setAngles("RElbowYaw", 1.5, 0.15)
+        self.motion.setAngles("RWristYaw", -0.14, 0.15)
+        # self.motion.closeHand('RHand')
 
-        time.sleep(5)
+        time.sleep(1)
 
     def release_nao(self):
         self.posture.goToPosture("Crouch", 0.3)
@@ -103,7 +108,7 @@ class NaoRobot:
             time.sleep(0.5)
             self.motion.setAngles("RElbowRoll", 0.5, 0.5)
             time.sleep(0.5)
-        
+
         # Stops the wave and closes the hand
         self.motion.setAngles("RElbowRoll", 1.0, 0.5)
         time.sleep(1)
@@ -115,7 +120,7 @@ class NaoRobot:
         # self.bring_to_sit(1)
 
     # Allows speech in simultaneity with movement
-    # For more information on how the post() method works, 
+    # For more information on how the post() method works,
     # visit https://developer.softbankrobotics.com/nao6/naoqi-developer-guide/other-tutorials/python-sdk-tutorials/parallel-tasks-making-nao-move-and
     def genSpeech(self, sentence):
         try:
